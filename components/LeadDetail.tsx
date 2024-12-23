@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Stars } from "lucide-react";
@@ -12,7 +13,7 @@ interface AvatarProps {
   title: string;
   message: string;
   topic: string;
-  Icon: string | undefined;
+  Icon: string;
   suggestion: string;
 }
 
@@ -55,7 +56,7 @@ export function LeadDetail({
         <CardContent>
           <div className="bg-primary/20 rounded-lg relative p-3">
             <div className="flex gap-3 mb-3 font-semibold items-center text-sm">
-              <Icon className={"size-6"} /> {topic}
+              <Icon /> {topic}
             </div>
             <p className="text-muted-foreground text-sm text-left">{message}</p>
 

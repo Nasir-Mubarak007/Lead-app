@@ -1,4 +1,3 @@
-import React from "react";
 import { Card, CardContent, CardHeader } from "./ui/card";
 import { cn } from "@/lib/utils";
 import { Stars } from "lucide-react";
@@ -50,7 +49,7 @@ export function Activities({
       <CardContent className="flex  -mx-3 -mb-4 w-full -mr-5">
         <div className="bg-primary/10  p-2 flex flex-1">
           <div className="flex gap-3 font-semibold items-center text-sm">
-            <Icon className={"size-6"} /> {topic}
+            <Icon /> {topic}
           </div>
         </div>
         <span className="bg-white p-2  -mt-3">

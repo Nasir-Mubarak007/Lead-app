@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -167,7 +168,7 @@ export default function LeadsPage() {
                       title={`COO . Northwind Traders`}
                       topic="Engage with Jane Reyes"
                       message="Jane maybe interested in expresso machines for her in-store coffe shops."
-                      Icon={MailQuestion}
+                      Icon={"MailQuestion"}
                       suggestion="Expand business . High buying intent"
                     />
                   </CarouselItem>
@@ -220,7 +221,7 @@ export default function LeadsPage() {
                   Icon={MailWarning}
                 />
                 <Activities
-                  src={"@/public/Copilot_Icon.svg"}
+                  src={""}
                   text={"BO"}
                   bg={"bg-yellow-500"}
                   name={"Cafe A100 for woodland Bank"}
