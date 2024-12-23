@@ -2,20 +2,11 @@ import Image from "next/image";
 import React from "react";
 import Mail from "../public/mail.png";
 import { Linkedin, Pencil, SendHorizontal, Stars, X } from "lucide-react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "./ui/card";
+import { Card, CardContent, CardHeader } from "./ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
-import { Input } from "postcss";
-import { Label } from "recharts";
 
 export function LeadInfo() {
   return (
