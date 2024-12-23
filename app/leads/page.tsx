@@ -1,6 +1,10 @@
-/* eslint-disable react/jsx-no-comment-textnodes */
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import {
@@ -33,12 +37,12 @@ import {
   MoreVertical,
   Plus,
   RefreshCcw,
+  Stars,
   Trash2,
   Users,
 } from "lucide-react";
 import Image from "next/image";
 import React from "react";
-import { LeadDetail } from "@/components/LeadDetail";
 import {
   Carousel,
   CarouselContent,
@@ -46,10 +50,15 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Popover, PopoverContent } from "@/components/ui/popover";
-import { Activities } from "@/components/Activities";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { Chartz } from "@/components/Chartz";
 import { LeadInfo } from "@/components/LeadInfo";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { cn } from "@/lib/utils";
 
 export default function LeadsPage() {
   return (
@@ -160,43 +169,155 @@ export default function LeadsPage() {
               >
                 <CarouselContent>
                   <CarouselItem className="md:basis-1/2">
-                    <LeadDetail
-                      src={"@/public/Copilot_Icon.svg"}
-                      text={"JR"}
-                      bg={"bg-red-500"}
-                      name={"Jane Reyes"}
-                      title={`COO . Northwind Traders`}
-                      topic="Engage with Jane Reyes"
-                      message="Jane maybe interested in expresso machines for her in-store coffe shops."
-                      Icon={"MailQuestion"}
-                      suggestion="Expand business . High buying intent"
-                    />
+                    <PopoverTrigger>
+                      <Card className="w-full">
+                        <CardHeader className="flex items-center flex-row gap-x-3 -mb-3">
+                          <div className="relative size-fit rounded-full p-0">
+                            <Avatar>
+                              <AvatarImage src={"@/public/Copilot_Icon.svg"} />
+                              <AvatarFallback className="bg-primary text-white">
+                                JR
+                              </AvatarFallback>
+                            </Avatar>
+                            <span
+                              className={cn(
+                                `absolute size-3 bottom-0 right-0 bg-red-500 rounded-full`
+                              )}
+                            ></span>
+                          </div>
+
+                          <div className="flex flex-col">
+                            <p className="text-sm font-semibold text-left">
+                              Jane Reyes
+                            </p>
+                            <p className="flex items-center text-muted-foreground text-xs">
+                              COO . Northwind Traders
+                            </p>
+                          </div>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="bg-primary/20 rounded-lg relative p-3">
+                            <div className="flex gap-3 mb-3 font-semibold items-center text-sm">
+                              <MailQuestion /> Engage with Jane Reyes
+                            </div>
+                            <p className="text-muted-foreground text-sm text-left">
+                              Jane maybe interested in expresso machines for her
+                              in-store coffe shops.
+                            </p>
+
+                            <span className="bg-white p-2 absolute -top-3 -right-3 rounded-xl">
+                              <Stars fill="blue" className="text-primary" />
+                            </span>
+                          </div>
+                        </CardContent>
+                        <CardFooter className="-mt-3">
+                          <p className="text-muted-foreground text-xs ml-2">
+                            Expand business . High buying intent
+                          </p>
+                        </CardFooter>
+                      </Card>
+                    </PopoverTrigger>
                   </CarouselItem>
                   <CarouselItem className="md:basis-1/2">
-                    <LeadDetail
-                      src={"@/public/Copilot_Icon.svg"}
-                      text={"AM"}
-                      bg={"bg-green-500"}
-                      name={"Allan Monger"}
-                      title={`Head of Real Estate Development . Contoso Coffee`}
-                      topic="Prepare for meeting with Allan"
-                      message="Prepare for high-buying intent meeting Copilot scheduled for 2PM regarding upgrading service contract."
-                      Icon={CalendarDays}
-                      suggestion="Upcoming meeting . Due today"
-                    />
+                    <PopoverTrigger>
+                      <Card className="w-full">
+                        <CardHeader className="flex items-center flex-row gap-x-3 -mb-3">
+                          <div className="relative size-fit rounded-full p-0">
+                            <Avatar>
+                              <AvatarImage src={"@/public/Copilot_Icon.svg"} />
+                              <AvatarFallback className="bg-primary text-white">
+                                AM
+                              </AvatarFallback>
+                            </Avatar>
+                            <span
+                              className={cn(
+                                `absolute size-3 bottom-0 right-0 bg-green-500 rounded-full`
+                              )}
+                            ></span>
+                          </div>
+
+                          <div className="flex flex-col">
+                            <p className="text-sm font-semibold text-left">
+                              Allan Monger
+                            </p>
+                            <p className="flex items-center text-muted-foreground text-xs">
+                              Head of Real Estate Development . Contoso Coffee
+                            </p>
+                          </div>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="bg-primary/20 rounded-lg relative p-3">
+                            <div className="flex gap-3 mb-3 font-semibold items-center text-sm">
+                              <CalendarDays /> Prepare for meeting with Allan
+                            </div>
+                            <p className="text-muted-foreground text-sm text-left">
+                              Prepare for high-buying intent meeting Copilot
+                              scheduled for 2PM regarding upgrading service
+                              contract.
+                            </p>
+
+                            <span className="bg-white p-2 absolute -top-3 -right-3 rounded-xl">
+                              <Stars fill="blue" className="text-primary" />
+                            </span>
+                          </div>
+                        </CardContent>
+                        <CardFooter className="-mt-3">
+                          <p className="text-muted-foreground text-xs ml-2">
+                            Upcoming meeting . Due today
+                          </p>
+                        </CardFooter>
+                      </Card>
+                    </PopoverTrigger>
                   </CarouselItem>
                   <CarouselItem className="md:basis-1/2">
-                    <LeadDetail
-                      src={"@/public/Copilot_Icon.svg"}
-                      text={"JR"}
-                      bg={"bg-red-500"}
-                      name={"Jane Reyes"}
-                      title={`COO . Northwind Traders`}
-                      topic="Engage with Jane Reyes"
-                      message="Jane maybe interested in expresso machines for her in-store coffe shops."
-                      Icon={MailQuestion}
-                      sugesstion="Expand bussiness . High buying intent"
-                    />
+                    <PopoverTrigger>
+                      <Card className="w-full">
+                        <CardHeader className="flex items-center flex-row gap-x-3 -mb-3">
+                          <div className="relative size-fit rounded-full p-0">
+                            <Avatar>
+                              <AvatarImage src={"@/public/Copilot_Icon.svg"} />
+                              <AvatarFallback className="bg-primary text-white">
+                                JR
+                              </AvatarFallback>
+                            </Avatar>
+                            <span
+                              className={cn(
+                                `absolute size-3 bottom-0 right-0 bg-red-500 rounded-full`
+                              )}
+                            ></span>
+                          </div>
+
+                          <div className="flex flex-col">
+                            <p className="text-sm font-semibold text-left">
+                              Jane Reyes
+                            </p>
+                            <p className="flex items-center text-muted-foreground text-xs">
+                              COO . Northwind Traders
+                            </p>
+                          </div>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="bg-primary/20 rounded-lg relative p-3">
+                            <div className="flex gap-3 mb-3 font-semibold items-center text-sm">
+                              <MailQuestion /> Engage with Jane Reyes
+                            </div>
+                            <p className="text-muted-foreground text-sm text-left">
+                              Jane maybe interested in expresso machines for her
+                              in-store coffe shops.
+                            </p>
+
+                            <span className="bg-white p-2 absolute -top-3 -right-3 rounded-xl">
+                              <Stars fill="blue" className="text-primary" />
+                            </span>
+                          </div>
+                        </CardContent>
+                        <CardFooter className="-mt-3">
+                          <p className="text-muted-foreground text-xs ml-2">
+                            Expand bussiness . High buying intent
+                          </p>
+                        </CardFooter>
+                      </Card>
+                    </PopoverTrigger>
                   </CarouselItem>
                 </CarouselContent>
                 <CarouselPrevious className="ml-8" />
@@ -211,24 +332,79 @@ export default function LeadsPage() {
                 Other key activities.
               </p>
               <div className="flex flex-col gap-3">
-                <Activities
-                  src={"@/public/Copilot_Icon.svg"}
-                  text={"BO"}
-                  bg={"bg-yellow-500"}
-                  name={"Cafe A100 for woodland Bank"}
-                  topic={"Review draft and reply to Chris Naido"}
-                  title={"Woodland Bank . $250,000 . 8 days to close"}
-                  Icon={MailWarning}
-                />
-                <Activities
-                  src={""}
-                  text={"BO"}
-                  bg={"bg-yellow-500"}
-                  name={"Cafe A100 for woodland Bank"}
-                  topic={"Review draft and reply to Chris Naido"}
-                  title={"Woodland Bank . $250,000 . 8 days to close"}
-                  Icon={MailWarning}
-                />
+                <Card className="w-[26rem]">
+                  <CardHeader className="flex items-center flex-row gap-x-3 -my-3 -mt-4  -mx-3">
+                    <div className="relative size-fit rounded-full p-0">
+                      <Avatar>
+                        <AvatarImage src={"@/public/Copilot_Icon.svg"} />
+                        <AvatarFallback className="bg-primary text-white">
+                          BO
+                        </AvatarFallback>
+                      </Avatar>
+                      <span
+                        className={cn(
+                          `absolute size-3 bottom-0 right-0 bg-yellow-500 rounded-full`
+                        )}
+                      ></span>
+                    </div>
+
+                    <div className="flex flex-col">
+                      <p className="text-sm font-semibold text-left">
+                        Cafe A100 for woodland Bank
+                      </p>
+                      <p className="flex items-center text-muted-foreground text-xs">
+                        Woodland Bank . $250,000 . 8 days to close
+                      </p>
+                    </div>
+                  </CardHeader>{" "}
+                  <CardContent className="flex  -mx-3 -mb-4 w-full -mr-5">
+                    <div className="bg-primary/10  p-2 flex flex-1">
+                      <div className="flex gap-3 font-semibold items-center text-sm">
+                        <MailWarning /> Review draft and reply to Chris Naido
+                      </div>
+                    </div>
+                    <span className="bg-white p-2  -mt-3">
+                      <Stars fill="blue" className="text-primary" />
+                    </span>
+                  </CardContent>
+                </Card>
+
+                <Card className="w-[26rem]">
+                  <CardHeader className="flex items-center flex-row gap-x-3 -my-3 -mt-4  -mx-3">
+                    <div className="relative size-fit rounded-full p-0">
+                      <Avatar>
+                        <AvatarImage src={"@/public/Copilot_Icon.svg"} />
+                        <AvatarFallback className="bg-primary text-white">
+                          BO
+                        </AvatarFallback>
+                      </Avatar>
+                      <span
+                        className={cn(
+                          `absolute size-3 bottom-0 right-0 bg-yellow-500 rounded-full`
+                        )}
+                      ></span>
+                    </div>
+
+                    <div className="flex flex-col">
+                      <p className="text-sm font-semibold text-left">
+                        Cafe A100 for woodland Bank
+                      </p>
+                      <p className="flex items-center text-muted-foreground text-xs">
+                        Woodland Bank . $250,000 . 8 days to close
+                      </p>
+                    </div>
+                  </CardHeader>{" "}
+                  <CardContent className="flex  -mx-3 -mb-4 w-full -mr-5">
+                    <div className="bg-primary/10  p-2 flex flex-1">
+                      <div className="flex gap-3 font-semibold items-center text-sm">
+                        <MailWarning /> Review draft and reply to Chris Naido
+                      </div>
+                    </div>
+                    <span className="bg-white p-2  -mt-3">
+                      <Stars fill="blue" className="text-primary" />
+                    </span>
+                  </CardContent>
+                </Card>
               </div>
             </div>
           </div>

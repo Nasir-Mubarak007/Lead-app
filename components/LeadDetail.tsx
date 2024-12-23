@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-comment-textnodes */
 import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Stars } from "lucide-react";
@@ -24,8 +23,8 @@ export function LeadDetail({
   name,
   title,
   topic,
-  message,
   Icon,
+  message,
   suggestion,
 }: AvatarProps) {
   return (
